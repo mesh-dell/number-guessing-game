@@ -55,6 +55,7 @@ func WriteHighScoreData(highScore HighScore) error {
 	}
 
 	err = json.NewEncoder(file).Encode(highScore)
+	defer file.Close()
 
 	if err != nil {
 		fmt.Println("error encoding json")
